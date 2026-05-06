@@ -15,12 +15,17 @@ As a senior Artificial Intelligence student, I have a strong passion for buildin
 
 ## Projects
 
-* **SilentReading System:** A software system translating EEG brain signals into text using PyTorch and Seq2Seq Transformers (BART).
-* **MentalQA AI System:** An Arabic mental-health platform that provides empathetic support utilizing prompt engineering with the ALLAM-7B LLM.
-* **SHARES:** A real-time Arabic lip-reading emergency system for the hearing impaired, built by fine-tuning an R(2+1)D ResNet for high-accuracy word recognition.
-* **SHEFAA:** A specialized LLM fine-tuned on a transformer model to accurately respond to complex Arabic medical inquiries.
-* **SmartGrader:** An automated grading system developed using computer vision techniques and the Roboflow framework.
-* **Warehouse Logistics System:** A computer vision-based system to detect trucks, track pallets, and automate turnaround time logging.
+**SilentReading System:** A software system translating EEG brain signals into text using PyTorch and Seq2Seq Transformers (BART).
+
+**MentalQA AI System:** An Arabic mental-health platform that provides empathetic support utilizing prompt engineering with the ALLAM-7B LLM.
+
+**SHARES:** A real-time Arabic lip-reading emergency system for the hearing impaired, built by fine-tuning an R(2+1)D ResNet for high-accuracy word recognition.
+
+**SHEFAA:** A specialized LLM fine-tuned on a transformer model to accurately respond to complex Arabic medical inquiries.
+
+**SmartGrader:** An automated grading system developed using computer vision techniques and the Roboflow framework.
+
+**Warehouse Logistics System:** A computer vision-based system to detect trucks, track pallets, and automate turnaround time logging.
 
 ---
 ## Tools I use
