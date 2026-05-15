@@ -2,14 +2,14 @@
 
 I'm Yasser
 
-As a senior Artificial Intelligence student, I have a strong passion for building innovative solutions[cite: 7]. [cite_start]I possess robust experience in developing AI models, with specialized skills in Data Analysis, Computer Vision, and Natural Language Processing[cite: 8].
+As a senior Artificial Intelligence student, I have a strong passion for building innovative solutions. I possess robust experience in developing AI models, with specialized skills in Data Analysis, Computer Vision, and Natural Language Processing.
 
 ---
 
 ## What I'm working on
 
-* Finishing my Bachelor's degree in Artificial Intelligence at Umm Al Qura University[cite: 11].
-* Currently developing the **SilentReading** system as my graduation project, which translates EEG brain signals into readable text to facilitate communication for mute individuals[cite: 30].
+* Finishing my Bachelor's degree in Artificial Intelligence at Umm Al Qura University.
+* Currently developing the **SilentReading** system as my graduation project, which translates EEG brain signals into readable text to facilitate communication for mute individuals.
 
 ---
 
