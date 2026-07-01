@@ -67,10 +67,6 @@ developing AI models. I am eager to leverage my technical skills in a dynamic en
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=yasser-alharbi&theme=tokyonight" alt="Top Languages by Repo" height="180"/>
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yasser-alharbi&theme=tokyonight" alt="Most Commit Language" height="180"/>
 </p>
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=yasser-alharbi&theme=tokyonight" alt="Stats" height="180"/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=yasser-alharbi&theme=tokyonight&utcOffset=3" alt="Productive Time" height="180"/>
-</p>
 
 ---
 
