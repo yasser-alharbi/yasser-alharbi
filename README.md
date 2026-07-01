@@ -61,8 +61,15 @@ developing AI models. I am eager to leverage my technical skills in a dynamic en
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=yasser-alharbi&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="165"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yasser-alharbi&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="165"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=yasser-alharbi&theme=tokyonight" alt="Profile Summary" width="80%"/>
+</p>
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=yasser-alharbi&theme=tokyonight" alt="Top Languages by Repo" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yasser-alharbi&theme=tokyonight" alt="Most Commit Language" height="180"/>
+</p>
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=yasser-alharbi&theme=tokyonight" alt="Stats" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=yasser-alharbi&theme=tokyonight&utcOffset=3" alt="Productive Time" height="180"/>
 </p>
 
 ---
