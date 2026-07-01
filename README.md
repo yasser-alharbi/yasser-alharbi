@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  As a fresh Artificial Intelligence graduate, I have a strong passion for building innovative solutions. I possess robust experience in 
-developing AI models. I am eager to leverage my technical skills in a dynamic environment to drive innovative projects forward.</b>.
+  As a fresh Artificial Intelligence graduate, I have a strong passion for building innovative solutions. I possess robust experience in
+developing AI models. I am eager to leverage my technical skills in a dynamic environment to drive innovative projects forward.
 </p>
 
 <p align="center">
@@ -61,8 +61,8 @@ developing AI models. I am eager to leverage my technical skills in a dynamic en
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="165"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="165"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=yasser-alharbi&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="165"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yasser-alharbi&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="165"/>
 </p>
 
 ---
