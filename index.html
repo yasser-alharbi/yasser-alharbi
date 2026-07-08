@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yasser Alharbi — AI/ML Engineer</title>
+<meta name="description" content="AI/ML Engineer decoding signals into language — brainwaves, lip movements, and Arabic text. EEG-to-text, computer vision, and Arabic NLP systems that ship.">
+<meta property="og:title" content="Yasser Alharbi — AI/ML Engineer">
+<meta property="og:description" content="Decoding signals into language — from brainwaves and lip movements to Arabic text.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0813">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0813;
+  --surface:#131022;
+  --elevated:#1a1530;
+  --border:rgba(196,181,253,.12);
+  --border-hover:rgba(196,181,253,.32);
+  --text:#ece9f7;
+  --muted:#9b93b8;
+  --dim:#6e6690;
+  --violet:#a78bfa;
+  --violet-strong:#8b5cf6;
+  --violet-deep:#7c3aed;
+  --glow:#c084fc;
+  --mono:'JetBrains Mono',monospace;
+  --display:'Sora',sans-serif;
+  --body:'Instrument Sans',sans-serif;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.65;overflow-x:hidden}
+::selection{background:var(--violet-deep);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:4px}
+
+/* ---------- shared ---------- */
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:lowercase;color:var(--violet);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow::after{content:"";height:1px;width:64px;background:linear-gradient(90deg,var(--violet-deep),transparent)}
+h2.section-title{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4vw,2.7rem);letter-spacing:-.02em;margin-bottom:42px}
+section{padding:110px 0;position:relative}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+.chip{font-family:var(--mono);font-size:.72rem;color:var(--muted);background:rgba(139,92,246,.08);border:1px solid var(--border);padding:5px 12px;border-radius:100px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.85rem;font-weight:500;padding:13px 26px;border-radius:100px;border:1px solid var(--border);transition:all .25s ease;cursor:pointer;color:var(--text)}
+.btn-primary{background:linear-gradient(135deg,var(--violet-deep),var(--violet-strong));border-color:transparent;color:#fff;box-shadow:0 0 28px rgba(124,58,237,.35)}
+.btn-primary:hover{box-shadow:0 0 44px rgba(168,132,250,.55);transform:translateY(-2px)}
+.btn-ghost:hover{border-color:var(--border-hover);background:rgba(139,92,246,.07);transform:translateY(-2px)}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);background:rgba(10,8,19,.72);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-bottom-color:var(--border)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--mono);font-weight:600;font-size:.95rem;color:var(--text)}
+.logo span{color:var(--violet)}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding:8px 14px;border-radius:100px;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(139,92,246,.12)}
+.nav-cta{display:inline-flex;font-family:var(--mono);font-size:.78rem;color:#fff;background:linear-gradient(135deg,var(--violet-deep),var(--violet-strong));padding:9px 18px;border-radius:100px;transition:box-shadow .25s}
+.nav-cta:hover{box-shadow:0 0 24px rgba(168,132,250,.5)}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:6px}
+@media(max-width:900px){
+  .nav-links{position:fixed;top:66px;right:0;left:0;flex-direction:column;background:rgba(10,8,19,.97);backdrop-filter:blur(20px);padding:20px 24px 28px;gap:4px;border-bottom:1px solid var(--border);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;text-align:center;padding:13px}
+  .hamburger{display:block}
+  .nav-cta{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:130px 0 60px;position:relative}
+#eeg-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 40%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 75% 65% at 50% 40%,#000 30%,transparent 75%);pointer-events:none}
+.hero-content{position:relative;z-index:2}
+.status-pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.75rem;color:var(--violet);border:1px solid var(--border);background:rgba(139,92,246,.07);padding:7px 16px;border-radius:100px;margin-bottom:30px}
+.status-pill .dot{width:7px;height:7px;border-radius:50%;background:#a3e635;box-shadow:0 0 10px #a3e635;animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.8rem,8vw,5.4rem);line-height:1.04;letter-spacing:-.03em;margin-bottom:16px}
+h1 .grad{background:linear-gradient(100deg,#c4b5fd 0%,#8b5cf6 45%,#e879f9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role-line{font-family:var(--mono);font-size:clamp(.95rem,2vw,1.12rem);color:var(--violet);margin-bottom:24px;letter-spacing:.06em;min-height:1.6em}
+.role-line .cursor{display:inline-block;width:2px;height:1.1em;background:var(--violet);animation:blink 1s step-end infinite;margin-left:3px;vertical-align:text-bottom}
+@keyframes blink{50%{opacity:0}}
+.hero-tag{max-width:640px;font-size:1.12rem;color:var(--muted);margin-bottom:30px}
+.hero-tag strong{color:var(--text);font-weight:600}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px}
+.hero-socials{display:flex;gap:10px}
+.hero-socials a{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--border);border-radius:12px;color:var(--muted);transition:all .25s}
+.hero-socials a:hover{color:var(--violet);border-color:var(--border-hover);transform:translateY(-3px);box-shadow:0 6px 22px rgba(124,58,237,.28)}
+.hero-socials svg{width:19px;height:19px;fill:currentColor}
+.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.68rem;letter-spacing:.25em;color:var(--dim);animation:bob 2.4s ease-in-out infinite;z-index:2}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 0;overflow:hidden;background:rgba(19,16,34,.5)}
+.marquee-track{display:flex;width:max-content;animation:scroll 36s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:var(--mono);font-size:.85rem;color:var(--dim);white-space:nowrap;padding-right:26px}
+.marquee-track span::after{content:"·";color:var(--violet);padding-left:26px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:start}
+.about-text p{color:var(--muted);margin-bottom:20px;font-size:1.06rem}
+.about-text p strong{color:var(--text)}
+.about-facts{list-style:none;margin-top:26px}
+.about-facts li{font-family:var(--mono);font-size:.82rem;color:var(--muted);padding:11px 0;border-bottom:1px dashed var(--border);display:flex;gap:12px;align-items:baseline}
+.about-facts li::before{content:"▸";color:var(--violet)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--violet-strong),transparent);opacity:0;transition:opacity .3s}
+.stat-card:hover{border-color:var(--border-hover);transform:translateY(-4px)}
+.stat-card:hover::before{opacity:1}
+.stat-num{font-family:var(--display);font-weight:800;font-size:1.9rem;background:linear-gradient(120deg,#ddd6fe,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.02em}
+.stat-label{font-family:var(--mono);font-size:.72rem;color:var(--dim);margin-top:6px;line-height:1.5}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+
+/* ---------- experience ---------- */
+.timeline{position:relative;margin-left:12px}
+.timeline::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--violet-strong),rgba(139,92,246,.08))}
+.t-item{position:relative;padding:0 0 52px 44px}
+.t-item:last-child{padding-bottom:0}
+.t-item::before{content:"";position:absolute;left:-6px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--violet-strong);box-shadow:0 0 14px rgba(139,92,246,.55)}
+.t-date{font-family:var(--mono);font-size:.74rem;color:var(--violet);letter-spacing:.08em;margin-bottom:8px}
+.t-item h3{font-family:var(--display);font-weight:700;font-size:1.22rem;letter-spacing:-.01em;margin-bottom:4px}
+.t-org{font-family:var(--mono);font-size:.8rem;color:var(--dim);margin-bottom:12px}
+.t-item p{color:var(--muted);font-size:.99rem;max-width:680px;margin-bottom:14px}
+.t-item p b{color:var(--text);font-weight:600}
+.t-tags{display:flex;flex-wrap:wrap;gap:8px}
+
+/* ---------- projects ---------- */
+.p-featured{background:linear-gradient(140deg,rgba(124,58,237,.14),rgba(19,16,34,.9) 55%);border:1px solid var(--border-hover);border-radius:20px;padding:44px;margin-bottom:26px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.p-featured:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(124,58,237,.22)}
+.p-featured::after{content:"";position:absolute;top:-140px;right:-140px;width:380px;height:380px;background:radial-gradient(circle,rgba(168,132,250,.22),transparent 65%);pointer-events:none}
+.p-flag{font-family:var(--mono);font-size:.72rem;color:var(--glow);letter-spacing:.14em;margin-bottom:16px;display:flex;gap:10px;flex-wrap:wrap}
+.p-flag .sep{color:var(--dim)}
+.p-featured h3{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.02em;margin-bottom:6px}
+.p-sub{font-family:var(--mono);font-size:.82rem;color:var(--violet);margin-bottom:18px}
+.p-featured>p{color:var(--muted);max-width:720px;margin-bottom:24px;position:relative;z-index:1}
+.p-featured>p b{color:var(--text)}
+.metric-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+.metric{background:rgba(10,8,19,.6);border:1px solid var(--border);border-radius:12px;padding:14px 20px;min-width:130px}
+.metric .m-num{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--glow);letter-spacing:-.02em}
+.metric .m-label{font-family:var(--mono);font-size:.66rem;color:var(--dim);margin-top:3px}
+.p-links{display:flex;flex-wrap:wrap;gap:18px;position:relative;z-index:1}
+.p-links a{font-family:var(--mono);font-size:.8rem;color:var(--violet);transition:color .2s}
+.p-links a:hover{color:var(--glow)}
+.p-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.p-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;transition:border-color .3s,transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.p-card:hover{border-color:var(--border-hover);transform:translateY(-6px);box-shadow:0 16px 44px rgba(124,58,237,.18)}
+.p-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}
+.p-badge{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--glow);text-align:right;line-height:1.25;white-space:nowrap}
+.p-badge small{display:block;font-family:var(--mono);font-weight:400;font-size:.6rem;color:var(--dim);letter-spacing:.06em}
+.p-card .p-date{font-family:var(--mono);font-size:.7rem;color:var(--dim);letter-spacing:.08em}
+.p-card h3{font-family:var(--display);font-weight:700;font-size:1.28rem;letter-spacing:-.01em;margin:2px 0 10px}
+.p-card>p{color:var(--muted);font-size:.94rem;flex:1;margin-bottom:18px}
+.p-card>p b{color:var(--text)}
+.p-foot{display:flex;flex-direction:column;gap:14px}
+.p-stack{display:flex;flex-wrap:wrap;gap:7px}
+.p-stack span{font-family:var(--mono);font-size:.64rem;color:var(--muted);border:1px solid var(--border);border-radius:100px;padding:3px 10px}
+
+/* ---------- stack ---------- */
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.stack-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:30px 26px;transition:border-color .3s,transform .3s}
+.stack-card:hover{border-color:var(--border-hover);transform:translateY(-4px)}
+.stack-verb{font-family:var(--mono);font-size:.72rem;color:var(--glow);letter-spacing:.16em;margin-bottom:6px}
+.stack-card h3{font-family:var(--display);font-weight:700;font-size:1.15rem;margin-bottom:18px}
+.stack-card ul{list-style:none}
+.stack-card li{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding:8px 0;border-bottom:1px dashed rgba(196,181,253,.09);display:flex;gap:10px}
+.stack-card li:last-child{border-bottom:none}
+.stack-card li::before{content:"—";color:var(--violet-deep)}
+
+/* ---------- teaching ---------- */
+.teach{background:linear-gradient(120deg,rgba(124,58,237,.12),rgba(19,16,34,.6));border:1px solid var(--border);border-radius:20px;padding:48px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px}
+.teach h3{font-family:var(--display);font-weight:800;font-size:1.6rem;letter-spacing:-.02em;margin-bottom:10px}
+.teach p{color:var(--muted);max-width:520px}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:10px}
+.c-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:border-color .3s,transform .3s;display:block}
+.c-card:hover{border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 12px 34px rgba(124,58,237,.16)}
+.c-kind{font-family:var(--mono);font-size:.68rem;color:var(--dim);letter-spacing:.14em;margin-bottom:8px}
+.c-val{font-family:var(--mono);font-size:.88rem;color:var(--text);word-break:break-all}
+.c-card .arrow{color:var(--violet);font-family:var(--mono);font-size:.75rem;margin-top:12px;display:inline-block}
+footer{border-top:1px solid var(--border);padding:34px 0}
+.footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer span{font-family:var(--mono);font-size:.72rem;color:var(--dim)}
+footer a{color:var(--violet)}
+@media(max-width:640px){
+  section{padding:80px 0}
+  .p-featured{padding:30px 24px}
+  .teach{padding:34px 26px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">yasser<span>.alharbi</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Stack</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="mailto:yasser.luq@outlook.com" class="nav-cta">Get in touch</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-grid-bg"></div>
+  <canvas id="eeg-canvas" aria-hidden="true"></canvas>
+  <div class="wrap hero-content">
+    <div class="status-pill"><span class="dot"></span> open to opportunities</div>
+    <h1>Yasser <span class="grad">Alharbi</span></h1>
+    <div class="role-line"><span id="typed"></span><span class="cursor"></span></div>
+    <p class="hero-tag">
+      I decode signals into language — <strong>brainwaves into sentences</strong>,
+      <strong>lip movements into emergency words</strong>, and
+      <strong>Arabic questions into safe medical answers</strong>.
+      AI that reaches people other systems leave behind.
+    </p>
+    <div class="hero-chips">
+      <span class="chip">b.sc. artificial intelligence &rsquo;26 · gpa 4.00 / 4.00</span>
+      <span class="chip">kaust academy → university of oxford, summer &rsquo;26</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View projects ↓</a>
+      <a href="mailto:yasser.luq@outlook.com" class="btn btn-ghost">Contact me</a>
+    </div>
+    <div class="hero-socials">
+      <a href="https://github.com/yasser-alharbi" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.4 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.1-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/yasser-al-harbi-/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2 2 0 1 1 0-4.1 2 2 0 0 1 0 4.1zM7.1 20.5H3.5V9h3.6v11.5z"/></svg>
+      </a>
+      <a href="https://t.me/+5sqHsY-QyuEwMTdk" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M11.9 0A12 12 0 1 0 24 12 12 12 0 0 0 11.9 0zm5.9 8.2-2 9.4c-.1.7-.5.8-1.1.5l-3-2.2-1.5 1.4c-.2.2-.3.3-.6.3l.2-3.1 5.6-5c.2-.2 0-.3-.3-.1l-7 4.4-3-1c-.6-.2-.6-.6.2-.9l11.7-4.5c.5-.2 1 .1.8.8z"/></svg>
+      </a>
+      <a href="mailto:yasser.luq@outlook.com" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M12 12.7 1.6 5.5A2 2 0 0 1 3 5h18a2 2 0 0 1 1.4.5L12 12.7zM12 15 1 7.4V19a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V7.4L12 15z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>PyTorch</span><span>Computer Vision</span><span>EEG Decoding</span><span>Transformers</span><span>Arabic NLP</span><span>LLM Fine-Tuning</span><span>YOLO</span><span>Multi-Object Tracking</span><span>QLoRA</span><span>OCR</span><span>Contrastive Learning</span><span>LLM Agents</span><span>Vector Search</span><span>Hugging Face</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow reveal">01 — about</div>
+    <h2 class="section-title reveal">Signals into language</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Every project I build starts with the same question: <strong>what if the usual channel
+          is unavailable?</strong> When someone can't speak, I decode their brainwaves. When audio
+          fails in an emergency, I read Arabic lips from silent video. When reliable medical
+          answers don't exist in Arabic, I fine-tune the model that provides them.
+        </p>
+        <p>
+          I'm an AI graduate from Umm Al-Qura University with a <strong>perfect 4.00 GPA</strong>,
+          currently doing AI research at the <strong>University of Oxford</strong> through the
+          KAUST Academy track — building recall-guaranteed similarity search over the Gaia
+          catalog of ~2 billion stars.
+        </p>
+        <ul class="about-facts">
+          <li>kaust academy → university of oxford, summer 2026</li>
+          <li>b.sc. artificial intelligence, umm al-qura university — gpa 4.00 / 4.00</li>
+          <li>research exchange @ the education university of hong kong</li>
+          <li>teaching ai courses in arabic on telegram — yasser tutorials</li>
+        </ul>
+      </div>
+      <div class="stat-grid reveal">
+        <div class="stat-card"><div class="stat-num">4.00</div><div class="stat-label">gpa / 4.00 — b.sc. artificial intelligence</div></div>
+        <div class="stat-card"><div class="stat-num">90.5%</div><div class="stat-label">bertscore f1 — eeg-to-text graduation project</div></div>
+        <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">ai systems built &amp; shipped</div></div>
+        <div class="stat-card"><div class="stat-num">Oxford</div><div class="stat-label">current stop — ai research, summer 2026</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow reveal">02 — experience</div>
+    <h2 class="section-title reveal">Where I've built</h2>
+    <div class="timeline">
+
+      <div class="t-item reveal">
+        <div class="t-date">jul 2026 — present · oxford, uk</div>
+        <h3>AI Research Intern</h3>
+        <div class="t-org">University of Oxford — KAUST Academy final stage</div>
+        <p>Selected for the final stage of the KAUST Academy program, hosted at Oxford.
+        Building <b>recall-guaranteed similarity search</b> over the Gaia catalog of
+        <b>~2 billion stars</b> — methods that scale to billions of high-dimensional
+        records without sacrificing retrieval accuracy.</p>
+        <div class="t-tags"><span class="chip">ANN Search</span><span class="chip">Vector Search</span><span class="chip">Large-Scale Data</span><span class="chip">Python</span></div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-date">jan 2026 — present · makkah, sa</div>
+        <h3>AI Trainee</h3>
+        <div class="t-org">KAUST Academy</div>
+        <p>Completed <b>80+ hours</b> of AI/ML coursework <b>with Distinction</b> —
+        data preparation, model design, and evaluating deep learning and computer
+        vision systems for segmentation and object detection.</p>
+        <div class="t-tags"><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Scikit-Learn</span><span class="chip">Computer Vision</span></div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-date">jul — aug 2025 · hong kong</div>
+        <h3>Summer Research Scholar</h3>
+        <div class="t-org">The Education University of Hong Kong</div>
+        <p>Intensive summer program in deep learning for computer vision — image
+        processing, object detection, and OCR applied to real-world tasks.
+        Capstone: <b>SmartGrader</b>, an end-to-end exam auto-grader (below).</p>
+        <div class="t-tags"><span class="chip">YOLO</span><span class="chip">OCR</span><span class="chip">OpenCV</span><span class="chip">Roboflow</span></div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-date">mar — jul 2025 · makkah, sa</div>
+        <h3>Computer Vision Engineering Intern</h3>
+        <div class="t-org">First City for Information Technology</div>
+        <p>Built a real-time system monitoring warehouse loading docks: a custom
+        <b>YOLOv12s</b> detector with <b>ByteTrack</b> automatically logs truck
+        turnaround times and pallet counts — <b>97.9% mAP</b>, <b>96% F1-score</b>.</p>
+        <div class="t-tags"><span class="chip">YOLOv12</span><span class="chip">ByteTrack</span><span class="chip">Multi-Object Tracking</span><span class="chip">VoTT</span></div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-date">ongoing · online</div>
+        <h3>Instructor — Yasser Tutorials</h3>
+        <div class="t-org">Telegram channel</div>
+        <p>Teaching AI and programming courses in Arabic — breaking down the same
+        techniques I use in research for students entering the field.</p>
+        <div class="t-tags"><span class="chip">Teaching</span><span class="chip">Arabic Content</span><span class="chip">AI Fundamentals</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow reveal">03 — projects</div>
+    <h2 class="section-title reveal">Things I've shipped</h2>
+
+    <!-- FEATURED -->
+    <div class="p-featured reveal">
+      <div class="p-flag">
+        <span>★ FEATURED</span><span class="sep">·</span>
+        <span>GRADUATION PROJECT</span><span class="sep">·</span>
+        <span>BRAIN–COMPUTER INTERFACE</span><span class="sep">·</span>
+        <span>SEP 2025 — MAY 2026</span>
+      </div>
+      <h3>SilentReading — EEG-to-Text-to-Speech</h3>
+      <div class="p-sub">decoding silent reading from brain activity into spoken sentences</div>
+      <p>
+        An end-to-end assistive system for people with severe speech impairments: a user's
+        brain activity from silently reading is decoded into text, then spoken aloud. Built on a
+        <b>463M-parameter model</b> — contrastive EEG–text pretraining (SRCP) followed by a
+        three-phase <b>chain-thaw</b> fine-tuning of a BART-large decoder, trained on <b>23,482</b>
+        EEG samples from the ZuCo dataset. A two-stage text enhancer lifts readability without
+        retraining. To the team's knowledge, the only documented EEG-to-text system with a
+        <b>live UI, real-time inference, and audio output</b>.
+      </p>
+      <div class="metric-row">
+        <div class="metric"><div class="m-num">90.52%</div><div class="m-label">ENHANCED BERTSCORE F1</div></div>
+        <div class="metric"><div class="m-num">+33.48</div><div class="m-label">BLEU-4 GAIN OVER BASELINE</div></div>
+        <div class="metric"><div class="m-num">+23.01</div><div class="m-label">BLEU-1 GAIN OVER BASELINE</div></div>
+        <div class="metric"><div class="m-num">463M</div><div class="m-label">PARAMETERS · CT-E2T</div></div>
+      </div>
+      <div class="p-links">
+        <a href="https://github.com/yasser-alharbi/SilentReading" target="_blank" rel="noopener">GitHub ↗</a>
+        <span class="chip">PyTorch</span><span class="chip">BART-large</span><span class="chip">Contrastive Learning</span><span class="chip">FastAPI</span><span class="chip">React</span>
+      </div>
+    </div>
+
+    <!-- GRID: newest → oldest -->
+    <div class="p-grid">
+
+      <div class="p-card reveal">
+        <div class="p-top">
+          <div class="p-date">APR — MAY 2026</div>
+          <div class="p-badge">7 agents<small>SCORED VERDICTS</small></div>
+        </div>
+        <h3>Reject Me First</h3>
+        <p>A bilingual AI committee that pressure-tests startup ideas before real investors do.
+        <b>7 specialist agents</b> — investor, technical, financial, legal and more — each return a
+        0–10 score with objections; a final judge synthesizes the verdict. Full <b>EN/AR</b> UI
+        with RTL + LTR. Hear the hard "no" early.</p>
+        <div class="p-foot">
+          <div class="p-stack"><span>React 19</span><span>tRPC</span><span>Drizzle</span><span>OpenAI</span><span>Multi-Agent</span></div>
+          <div class="p-links"><a href="https://github.com/NaifMAlharbi/reject-me-first1" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-top">
+          <div class="p-date">JUL — AUG 2025</div>
+          <div class="p-badge">20/20 (A)<small>DEMO GRADE</small></div>
+        </div>
+        <h3>SmartGrader</h3>
+        <p>Turns a single photo of an exam sheet into scored results with encouraging feedback.
+        Four AI stages chain together: <b>YOLOv11</b> detection → dual OCR (EasyOCR + TrOCR) →
+        <b>GPT-4 Turbo</b> agents that match and grade each answer with concept-focused feedback.
+        Deployed as a Gradio app.</p>
+        <div class="p-foot">
+          <div class="p-stack"><span>YOLOv11</span><span>EasyOCR</span><span>TrOCR</span><span>GPT-4 Turbo</span><span>Agno</span></div>
+          <div class="p-links"><a href="https://github.com/yasser-alharbi/SmartGrader" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-top">
+          <div class="p-date">MAR — MAY 2025</div>
+          <div class="p-badge">67%<small>BERTSCORE F1</small></div>
+        </div>
+        <h3>MentalQA</h3>
+        <p>A safe, empathetic Arabic mental-health assistant. Pairs the <b>ALLaM-7B</b> LLM with
+        two <b>AraBERT</b> classifiers that type each clinical query so the generator tailors its
+        response. Reached <b>67% BERTScore F1</b> against expert psychiatric answers — supportive
+        and safety-oriented rather than diagnostic.</p>
+        <div class="p-foot">
+          <div class="p-stack"><span>ALLaM-7B</span><span>AraBERT</span><span>Prompt Eng.</span><span>Gradio</span></div>
+          <div class="p-links"><a href="https://github.com/yasser-alharbi/MentalQA-" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-top">
+          <div class="p-date">DEC 2024 — FEB 2025</div>
+          <div class="p-badge">76%<small>TEST ACCURACY</small></div>
+        </div>
+        <h3>SHARES — Arabic Lip Reading</h3>
+        <p>When audio fails in an emergency, lips are the only channel left. A fine-tuned
+        <b>R(2+1)D</b> CNN reads Arabic emergency words — "ambulance", "help me", "police" —
+        from silent video of mouth movement alone. Trained on a custom-collected 330-clip dataset,
+        <b>76% accuracy</b> in real-time visual speech recognition.</p>
+        <div class="p-foot">
+          <div class="p-stack"><span>R(2+1)D CNN</span><span>PyTorch</span><span>OpenCV</span><span>Computer Vision</span></div>
+          <div class="p-links"><a href="https://github.com/NaifMAlharbi/SHARES" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-top">
+          <div class="p-date">NOV 2024 — JAN 2025</div>
+          <div class="p-badge">61.3%<small>BERTSCORE F1</small></div>
+        </div>
+        <h3>SHEFAA — Arabic Medical QA</h3>
+        <p>An Arabic medical question-answering system fine-tuned on the <b>AHQAD</b> dataset
+        (715K+ cleaned Q&amp;A pairs). Uses <b>Jais-family-256m</b> with <b>QLoRA</b> 4-bit
+        quantization for memory-efficient adaptation, plus a rigorous Arabic normalization
+        pipeline. Demonstrated that clean data meaningfully outperforms raw across BLEU, ROUGE
+        and BERTScore.</p>
+        <div class="p-foot">
+          <div class="p-stack"><span>Jais-256m</span><span>QLoRA</span><span>bitsandbytes</span><span>Arabic NLP</span></div>
+          <div class="p-links"><a href="https://github.com/yasser-alharbi/SHEFAA" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="stack">
+  <div class="wrap">
+    <div class="eyebrow reveal">04 — stack</div>
+    <h2 class="section-title reveal">What I work with</h2>
+    <div class="stack-grid">
+
+      <div class="stack-card reveal">
+        <div class="stack-verb">SEES</div>
+        <h3>Computer Vision</h3>
+        <ul>
+          <li>PyTorch &amp; TensorFlow</li>
+          <li>YOLO (v11 / v12)</li>
+          <li>R(2+1)D &amp; ResNet</li>
+          <li>Multi-Object Tracking (ByteTrack)</li>
+          <li>OCR — EasyOCR, TrOCR</li>
+          <li>OpenCV · Roboflow · VoTT</li>
+        </ul>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-verb">READS &amp; WRITES</div>
+        <h3>NLP &amp; LLMs</h3>
+        <ul>
+          <li>LLM Fine-Tuning (QLoRA / LoRA)</li>
+          <li>Jais · ALLaM · BART · AraBERT</li>
+          <li>Contrastive Pretraining</li>
+          <li>Prompt Engineering</li>
+          <li>Seq2Seq &amp; Transformers</li>
+          <li>Arabic NLP &amp; normalization</li>
+        </ul>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-verb">DECODES</div>
+        <h3>Signals &amp; Agents</h3>
+        <ul>
+          <li>EEG decoding (ZuCo)</li>
+          <li>Approx. Nearest Neighbor search</li>
+          <li>Vector / similarity search</li>
+          <li>LLM agents (Agno, multi-agent)</li>
+          <li>Large-scale data processing</li>
+          <li>Hugging Face Transformers</li>
+        </ul>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-verb">SHIPS</div>
+        <h3>Deploy &amp; Tooling</h3>
+        <ul>
+          <li>FastAPI · Gradio</li>
+          <li>React + Vite</li>
+          <li>MongoDB · MySQL</li>
+          <li>NumPy · Pandas · Scikit-Learn</li>
+          <li>Git &amp; GitHub</li>
+          <li>Python (primary)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <div class="teach reveal">
+      <div>
+        <div class="stack-verb">TEACHES</div>
+        <h3>Yasser Tutorials</h3>
+        <p>I run a Telegram channel where I teach AI and programming courses in Arabic —
+        turning the same methods I use in research into lessons for students entering the field.</p>
+      </div>
+      <a href="https://t.me/+5sqHsY-QyuEwMTdk" target="_blank" rel="noopener" class="btn btn-primary">Join the channel ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow reveal">05 — contact</div>
+    <h2 class="section-title reveal">Let's build something</h2>
+    <div class="contact-grid">
+      <a class="c-card reveal" href="mailto:yasser.luq@outlook.com">
+        <div class="c-kind">EMAIL</div>
+        <div class="c-val">yasser.luq@outlook.com</div>
+        <span class="arrow">Send a message →</span>
+      </a>
+      <a class="c-card reveal" href="tel:+966596811129">
+        <div class="c-kind">PHONE</div>
+        <div class="c-val">+966 59 681 1129</div>
+        <span class="arrow">Call →</span>
+      </a>
+      <a class="c-card reveal" href="https://www.linkedin.com/in/yasser-al-harbi-/" target="_blank" rel="noopener">
+        <div class="c-kind">LINKEDIN</div>
+        <div class="c-val">/in/yasser-al-harbi-</div>
+        <span class="arrow">Connect →</span>
+      </a>
+      <a class="c-card reveal" href="https://github.com/yasser-alharbi" target="_blank" rel="noopener">
+        <div class="c-kind">GITHUB</div>
+        <div class="c-val">/yasser-alharbi</div>
+        <span class="arrow">View repos →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Yasser Alharbi — AI/ML Engineer</span>
+    <span>Makkah, Saudi Arabia · <a href="#top">back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+// nav scroll state
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
+
+// mobile menu
+const burger=document.getElementById('hamburger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+// scroll reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// active nav link on scroll
+const secs=[...document.querySelectorAll('section[id]')];
+const navA=[...document.querySelectorAll('.nav-links a')];
+addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
+  navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+// typed role line
+const phrases=['AI / ML Engineer','Brain–Computer Interfaces','Arabic NLP & LLMs','Computer Vision','Assistive AI, that ships'];
+const typed=document.getElementById('typed');
+let pi=0,ci=0,del=false;
+function tick(){
+  const p=phrases[pi];
+  typed.textContent=del?p.slice(0,ci--):p.slice(0,ci++);
+  let d=del?45:80;
+  if(!del&&ci===p.length+1){del=true;d=1600;ci=p.length}
+  else if(del&&ci<0){del=false;pi=(pi+1)%phrases.length;ci=0;d=250}
+  setTimeout(tick,d);
+}
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){tick();}
+else{typed.textContent=phrases[0];}
+
+// duplicate marquee for seamless loop
+const mt=document.getElementById('marqueeTrack');
+mt.innerHTML+=mt.innerHTML;
+
+// EEG / signal wave hero background
+(function(){
+  const c=document.getElementById('eeg-canvas');
+  if(!c)return;
+  const ctx=c.getContext('2d');
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let w,h,dpr;
+  function size(){
+    dpr=Math.min(devicePixelRatio||1,2);
+    w=c.clientWidth;h=c.clientHeight;
+    c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  size();addEventListener('resize',size);
+  const waves=[
+    {amp:26,freq:.010,speed:.020,y:.30,col:'rgba(167,139,250,.55)',lw:1.6},
+    {amp:18,freq:.016,speed:.028,y:.48,col:'rgba(192,132,252,.40)',lw:1.3},
+    {amp:34,freq:.007,speed:.015,y:.66,col:'rgba(124,58,237,.42)',lw:1.8},
+    {amp:14,freq:.022,speed:.034,y:.80,col:'rgba(139,92,246,.30)',lw:1.1}
+  ];
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    waves.forEach(wv=>{
+      ctx.beginPath();
+      for(let x=0;x<=w;x+=4){
+        // spiky EEG-like signal: base sine + jitter bursts
+        const base=Math.sin(x*wv.freq + t*wv.speed);
+        const spike=Math.sin(x*wv.freq*3.3 + t*wv.speed*2)*0.4;
+        const burst=Math.sin(x*0.05 + t*0.01)*Math.sin(x*wv.freq*7)*0.3;
+        const y=h*wv.y + (base+spike+burst)*wv.amp;
+        x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle=wv.col;ctx.lineWidth=wv.lw;
+      ctx.shadowColor=wv.col;ctx.shadowBlur=8;
+      ctx.stroke();ctx.shadowBlur=0;
+    });
+    t+=1;
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
