@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yasser Alharbi — AI/ML Engineer</title>
-<meta name="description" content="AI/ML Engineer decoding signals into language — brainwaves, lip movements, and Arabic text. EEG-to-text, computer vision, and Arabic NLP systems that ship.">
+<meta name="description" content="AI/ML Engineer building intelligent systems end-to-end — computer vision, NLP, and LLMs, from research models to deployed products.">
 <meta property="og:title" content="Yasser Alharbi — AI/ML Engineer">
-<meta property="og:description" content="Decoding signals into language — from brainwaves and lip movements to Arabic text.">
+<meta property="og:description" content="AI/ML Engineer building intelligent systems end-to-end — from research models to deployed products.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0a0813">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,6 +57,16 @@ section{padding:110px 0;position:relative}
 .btn-primary{background:linear-gradient(135deg,var(--violet-deep),var(--violet-strong));border-color:transparent;color:#fff;box-shadow:0 0 28px rgba(124,58,237,.35)}
 .btn-primary:hover{box-shadow:0 0 44px rgba(168,132,250,.55);transform:translateY(-2px)}
 .btn-ghost:hover{border-color:var(--border-hover);background:rgba(139,92,246,.07);transform:translateY(-2px)}
+
+/* ---------- scroll progress ---------- */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:110;background:linear-gradient(90deg,var(--violet-deep),var(--glow));box-shadow:0 0 12px rgba(192,132,252,.7);transition:width .1s linear}
+
+/* ---------- cursor spotlight ---------- */
+#spotlight{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(139,92,246,.10),transparent 65%);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s;mix-blend-mode:screen}
+@media(hover:hover){#spotlight.on{opacity:1}}
+
+/* tilt cards */
+.p-card,.stat-card{will-change:transform}
 
 /* ---------- nav ---------- */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);background:rgba(10,8,19,.72);border-bottom:1px solid transparent;transition:border-color .3s}
@@ -169,6 +179,10 @@ h1 .grad{background:linear-gradient(100deg,#c4b5fd 0%,#8b5cf6 45%,#e879f9 100%);
 .p-foot{display:flex;flex-direction:column;gap:14px}
 .p-stack{display:flex;flex-wrap:wrap;gap:7px}
 .p-stack span{font-family:var(--mono);font-size:.64rem;color:var(--muted);border:1px solid var(--border);border-radius:100px;padding:3px 10px}
+.use-case{display:flex;gap:12px;align-items:baseline;background:rgba(139,92,246,.06);border-left:2px solid var(--violet-strong);border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:20px;position:relative;z-index:1}
+.use-case .uc-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--glow);white-space:nowrap}
+.use-case p{font-size:.9rem;color:var(--muted);font-style:italic;margin:0;flex:1}
+.use-case p b{color:var(--text);font-style:normal}
 
 /* ---------- stack ---------- */
 .stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
@@ -205,6 +219,8 @@ footer a{color:var(--violet)}
 </style>
 </head>
 <body>
+<div id="progress"></div>
+<div id="spotlight" aria-hidden="true"></div>
 
 <nav id="nav">
   <div class="nav-inner">
@@ -230,10 +246,10 @@ footer a{color:var(--violet)}
     <h1>Yasser <span class="grad">Alharbi</span></h1>
     <div class="role-line"><span id="typed"></span><span class="cursor"></span></div>
     <p class="hero-tag">
-      I decode signals into language — <strong>brainwaves into sentences</strong>,
-      <strong>lip movements into emergency words</strong>, and
-      <strong>Arabic questions into safe medical answers</strong>.
-      AI that reaches people other systems leave behind.
+      I'm an AI/ML engineer who takes ideas all the way — <strong>research, training,
+      and deployment</strong>. I build systems that <strong>see</strong>,
+      <strong>read</strong>, and <strong>understand</strong>, across computer vision,
+      NLP, and large language models.
     </p>
     <div class="hero-chips">
       <span class="chip">b.sc. artificial intelligence &rsquo;26 · gpa 4.00 / 4.00</span>
@@ -270,14 +286,14 @@ footer a{color:var(--violet)}
 <section id="about">
   <div class="wrap">
     <div class="eyebrow reveal">01 — about</div>
-    <h2 class="section-title reveal">Signals into language</h2>
+    <h2 class="section-title reveal">Ideas → working systems</h2>
     <div class="about-grid">
       <div class="about-text reveal">
         <p>
-          Every project I build starts with the same question: <strong>what if the usual channel
-          is unavailable?</strong> When someone can't speak, I decode their brainwaves. When audio
-          fails in an emergency, I read Arabic lips from silent video. When reliable medical
-          answers don't exist in Arabic, I fine-tune the model that provides them.
+          I like the <strong>whole pipeline</strong>: framing a problem, collecting and cleaning
+          the data, training the model, and shipping something a real person can open in a
+          browser. My projects span computer vision, Arabic NLP, LLM agents, and brain–computer
+          interfaces — different domains, same discipline of taking things from paper to product.
         </p>
         <p>
           I'm an AI graduate from Umm Al-Qura University with a <strong>perfect 4.00 GPA</strong>,
@@ -293,9 +309,9 @@ footer a{color:var(--violet)}
         </ul>
       </div>
       <div class="stat-grid reveal">
-        <div class="stat-card"><div class="stat-num">4.00</div><div class="stat-label">gpa / 4.00 — b.sc. artificial intelligence</div></div>
-        <div class="stat-card"><div class="stat-num">90.5%</div><div class="stat-label">bertscore f1 — eeg-to-text graduation project</div></div>
-        <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">ai systems built &amp; shipped</div></div>
+        <div class="stat-card"><div class="stat-num" data-count="4.00" data-decimals="2">0.00</div><div class="stat-label">gpa / 4.00 — b.sc. artificial intelligence</div></div>
+        <div class="stat-card"><div class="stat-num" data-count="6">0</div><div class="stat-label">ai systems built &amp; shipped</div></div>
+        <div class="stat-card"><div class="stat-num" data-count="3">0</div><div class="stat-label">countries — research in sa · hk · uk</div></div>
         <div class="stat-card"><div class="stat-num">Oxford</div><div class="stat-label">current stop — ai research, summer 2026</div></div>
       </div>
     </div>
@@ -385,6 +401,10 @@ footer a{color:var(--violet)}
         retraining. To the team's knowledge, the only documented EEG-to-text system with a
         <b>live UI, real-time inference, and audio output</b>.
       </p>
+      <div class="use-case">
+        <span class="uc-tag">USE CASE</span>
+        <p>A patient with ALS or locked-in syndrome silently reads a sentence in their mind; <b>the system types it out and speaks it aloud</b> — restoring a voice where speech and movement are gone.</p>
+      </div>
       <div class="metric-row">
         <div class="metric"><div class="m-num">90.52%</div><div class="m-label">ENHANCED BERTSCORE F1</div></div>
         <div class="metric"><div class="m-num">+33.48</div><div class="m-label">BLEU-4 GAIN OVER BASELINE</div></div>
@@ -410,6 +430,7 @@ footer a{color:var(--violet)}
         <b>7 specialist agents</b> — investor, technical, financial, legal and more — each return a
         0–10 score with objections; a final judge synthesizes the verdict. Full <b>EN/AR</b> UI
         with RTL + LTR. Hear the hard "no" early.</p>
+        <div class="use-case"><span class="uc-tag">USE CASE</span><p>A founder rehearses their pitch against <b>7 tough reviewers</b> at 2am — and walks into the real room already knowing every objection.</p></div>
         <div class="p-foot">
           <div class="p-stack"><span>React 19</span><span>tRPC</span><span>Drizzle</span><span>OpenAI</span><span>Multi-Agent</span></div>
           <div class="p-links"><a href="https://github.com/NaifMAlharbi/reject-me-first1" target="_blank" rel="noopener">GitHub ↗</a></div>
@@ -426,6 +447,7 @@ footer a{color:var(--violet)}
         Four AI stages chain together: <b>YOLOv11</b> detection → dual OCR (EasyOCR + TrOCR) →
         <b>GPT-4 Turbo</b> agents that match and grade each answer with concept-focused feedback.
         Deployed as a Gradio app.</p>
+        <div class="use-case"><span class="uc-tag">USE CASE</span><p>A teacher photographs a stack of handwritten exams and gets them <b>graded with feedback in seconds</b> — or a student self-tests and learns instantly.</p></div>
         <div class="p-foot">
           <div class="p-stack"><span>YOLOv11</span><span>EasyOCR</span><span>TrOCR</span><span>GPT-4 Turbo</span><span>Agno</span></div>
           <div class="p-links"><a href="https://github.com/yasser-alharbi/SmartGrader" target="_blank" rel="noopener">GitHub ↗</a></div>
@@ -442,6 +464,7 @@ footer a{color:var(--violet)}
         two <b>AraBERT</b> classifiers that type each clinical query so the generator tailors its
         response. Reached <b>67% BERTScore F1</b> against expert psychiatric answers — supportive
         and safety-oriented rather than diagnostic.</p>
+        <div class="use-case"><span class="uc-tag">USE CASE</span><p>An Arabic speaker hesitant to seek help asks a sensitive question at 3am and gets a <b>calm, safe, non-judgmental</b> first response in their own language.</p></div>
         <div class="p-foot">
           <div class="p-stack"><span>ALLaM-7B</span><span>AraBERT</span><span>Prompt Eng.</span><span>Gradio</span></div>
           <div class="p-links"><a href="https://github.com/yasser-alharbi/MentalQA-" target="_blank" rel="noopener">GitHub ↗</a></div>
@@ -458,6 +481,7 @@ footer a{color:var(--violet)}
         <b>R(2+1)D</b> CNN reads Arabic emergency words — "ambulance", "help me", "police" —
         from silent video of mouth movement alone. Trained on a custom-collected 330-clip dataset,
         <b>76% accuracy</b> in real-time visual speech recognition.</p>
+        <div class="use-case"><span class="uc-tag">USE CASE</span><p>A deaf or non-verbal person mouths "<b>ambulance</b>" to a phone camera in a crisis — and the word is recognized and relayed without a single sound.</p></div>
         <div class="p-foot">
           <div class="p-stack"><span>R(2+1)D CNN</span><span>PyTorch</span><span>OpenCV</span><span>Computer Vision</span></div>
           <div class="p-links"><a href="https://github.com/NaifMAlharbi/SHARES" target="_blank" rel="noopener">GitHub ↗</a></div>
@@ -475,6 +499,7 @@ footer a{color:var(--violet)}
         quantization for memory-efficient adaptation, plus a rigorous Arabic normalization
         pipeline. Demonstrated that clean data meaningfully outperforms raw across BLEU, ROUGE
         and BERTScore.</p>
+        <div class="use-case"><span class="uc-tag">USE CASE</span><p>Someone types a health worry in Arabic and gets a <b>coherent, domain-focused</b> answer — instead of the English-only or unreliable results they'd usually hit.</p></div>
         <div class="p-foot">
           <div class="p-stack"><span>Jais-256m</span><span>QLoRA</span><span>bitsandbytes</span><span>Arabic NLP</span></div>
           <div class="p-links"><a href="https://github.com/yasser-alharbi/SHEFAA" target="_blank" rel="noopener">GitHub ↗</a></div>
@@ -533,12 +558,12 @@ footer a{color:var(--violet)}
         <div class="stack-verb">SHIPS</div>
         <h3>Deploy &amp; Tooling</h3>
         <ul>
-          <li>FastAPI · Gradio</li>
-          <li>React + Vite</li>
-          <li>MongoDB · MySQL</li>
-          <li>NumPy · Pandas · Scikit-Learn</li>
-          <li>Git &amp; GitHub</li>
           <li>Python (primary)</li>
+          <li>Gradio — demos &amp; deployment</li>
+          <li>Hugging Face Hub</li>
+          <li>NumPy · Pandas · Scikit-Learn</li>
+          <li>Dataset curation &amp; cleaning</li>
+          <li>Git &amp; GitHub</li>
         </ul>
       </div>
 
@@ -577,12 +602,12 @@ footer a{color:var(--violet)}
       </a>
       <a class="c-card reveal" href="https://www.linkedin.com/in/yasser-al-harbi-/" target="_blank" rel="noopener">
         <div class="c-kind">LINKEDIN</div>
-        <div class="c-val">/in/yasser-al-harbi-</div>
+        <div class="c-val">Yasser Alharbi</div>
         <span class="arrow">Connect →</span>
       </a>
       <a class="c-card reveal" href="https://github.com/yasser-alharbi" target="_blank" rel="noopener">
         <div class="c-kind">GITHUB</div>
-        <div class="c-val">/yasser-alharbi</div>
+        <div class="c-val">@yasser-alharbi</div>
         <span class="arrow">View repos →</span>
       </a>
     </div>
@@ -637,6 +662,58 @@ else{typed.textContent=phrases[0];}
 // duplicate marquee for seamless loop
 const mt=document.getElementById('marqueeTrack');
 mt.innerHTML+=mt.innerHTML;
+
+// scroll progress bar
+const prog=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight);
+  prog.style.width=(p*100)+'%';
+},{passive:true});
+
+// cursor spotlight (desktop only)
+const spot=document.getElementById('spotlight');
+if(matchMedia('(hover:hover)').matches){
+  addEventListener('mousemove',e=>{
+    spot.style.left=e.clientX+'px';
+    spot.style.top=e.clientY+'px';
+    spot.classList.add('on');
+  });
+  addEventListener('mouseleave',()=>spot.classList.remove('on'));
+}
+
+// animated stat counters
+const fmt=(v,d)=>d?v.toFixed(d):Math.round(v).toString();
+const counters=document.querySelectorAll('[data-count]');
+const cio=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,target=parseFloat(el.dataset.count),dec=parseInt(el.dataset.decimals||0);
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=fmt(target,dec);cio.unobserve(el);return;}
+    const dur=1200,t0=performance.now();
+    (function step(now){
+      const p=Math.min((now-t0)/dur,1);
+      const eased=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*eased,dec);
+      if(p<1)requestAnimationFrame(step);else el.textContent=fmt(target,dec);
+    })(t0);
+    cio.unobserve(el);
+  });
+},{threshold:.6});
+counters.forEach(c=>cio.observe(c));
+
+// subtle 3D tilt on cards
+if(matchMedia('(hover:hover)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+  document.querySelectorAll('.p-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width-.5;
+      const py=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`translateY(-6px) perspective(900px) rotateY(${px*5}deg) rotateX(${-py*5}deg)`;
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform='';});
+  });
+}
 
 // EEG / signal wave hero background
 (function(){
